@@ -1,22 +1,25 @@
 /* HTML elementy
 // ==================================== */
+
 * {
     @include prefix((box-sizing: border-box) );
     @include prefix_inner((image-rendering: crisp-edges) );
 }
 html, body{
     height: 100%;
-    font-size:10px;
+    font-size: $base-font-size;
 }
 html{
-    @include prefix( (text-size-adjust: 100%), webkit ms );
+    @include prefix( (text-size-adjust: 100%), 'webkit ms' );
 }
+
 body{
-    text-align: center;
     margin: 0;
     padding: 0;
     position: relative;
-    @include font-size(15px);
+    line-height: $base-line-height / $base-font-size;
+    font-family: 'Philosopher', sans-serif;
+    color: $color-6;
 }
 
 ul, ol{
@@ -44,6 +47,23 @@ p{
 #{headings(1,5, '* +')} {
     margin-top: 1em;
 }
+
+h1{
+    @include font-size(40px);
+}
+h2{
+    @include font-size(35px);
+}
+h3{
+    @include font-size(30px);
+}
+h4{
+    @include font-size(25px);
+}
+h5{
+    @include font-size(18px);
+}
+
 *:focus{
     outline: none;
 }
@@ -64,6 +84,9 @@ a{
     img{
         border: 0px;
     }
+}
+img{
+    vertical-align: middle;
 }
 label{
     cursor: pointer;

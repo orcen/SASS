@@ -1,6 +1,6 @@
 @function calculateRem($size) {
-    @if( $size != 0 ) {
-        $remSize: $size / 10px;
+    @if( $size != 0 and $size != auto ) {
+        $remSize: $size / $base-font-size;
         @return $remSize * 1rem;
     }
     @return $size;
