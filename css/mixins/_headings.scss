@@ -1,0 +1,17 @@
+@function headings($from:1, $to:6, $parent:'') {
+    @if $from == $to {
+        @if $parent != '' {
+            @return $parent + ' h#{$from}';
+        }
+        @else {
+            @return 'h#{$from}';
+        }
+    } @else {
+        @if $parent != '' {
+            @return $parent + ' h#{$from},' + headings($from+1, $to, $parent);
+        }
+        @else {
+            @return 'h#{$from},' + headings($from+1, $to);
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@mixin center($width, $height) {
+    $remWidth: calculateRem($width);
+    $remHeight: calculateRem($height);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: $height;
+    height: $remHeight;
+    width: $width;
+    width: $remWidth;
+    margin-left: - $width / 2;
+    margin-left: - $remWidth / 2;
+    margin-top: - $height / 2;
+    margin-top: - $remHeight / 2;
+}
+
+@mixin centerH($width) {
+    $remWidth: calculateRem($width);
+
+    position: absolute;
+    left: 50%;
+    width: $width;
+    width: $remWidth;
+    margin-left: - $width / 2;
+    margin-left: - $remWidth / 2;
+}
+@mixin centerV($height) {
+    $remHeight: calculateRem($height);
+
+    position: absolute;
+    top: 50%;
+    height: $height;
+    height: $remHeight;
+    margin-top: - $height / 2;
+    margin-top: - $remHeight / 2;
+}
+
+@mixin margin( $top , $right : $top, $bottom : $top, $left : $right ) {
+    @if( $top == $right and $top == $bottom and $right == $left ) {
+        margin: $top;
+        margin: calculateRem( $top );
+    }
+    @else {
+        margin-top: $top;
+        margin-top: calculateRem( $top );
+        margin-right: $right;
+        margin-right: calculateRem( $right );
+        margin-bottom: $bottom;
+        margin-bottom: calculateRem( $bottom );
+        margin-left: $left;
+        margin-left: calculateRem( $left );
+    }
+
+//    @if( $top == $right ) {
+//        margin: $top;
+//        margin: calculateRem( $top );
+//    }
+//    @else {
+//        @if($top != $right and $left == $right && $top == $bottom ) {
+//            margin: $top $right;
+//            margin: calculateRem( $top ) calculateRem( $right );
+//        }
+//        @elseif( $right != $left ) {
+//            margin: $top $right $bottom $left;
+//            margin: calculateRem( $top ) calculateRem( $right ) calculateRem( $bottom ) calculateRem( $left );
+//        }
+//    }
+}

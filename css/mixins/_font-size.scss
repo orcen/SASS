@@ -1,0 +1,12 @@
+@function calculateRem($size) {
+    @if( $size != 0 ) {
+        $remSize: $size / 10px;
+        @return $remSize * 1rem;
+    }
+    @return $size;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}

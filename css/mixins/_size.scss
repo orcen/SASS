@@ -1,0 +1,11 @@
+@mixin width($width) {
+    $remWidth: calculateRem($width);
+    width: $width;
+    width: $remWidth;
+}
+
+@mixin height($height) {
+    $remHeight: calculateRem($height);
+    height: $height;
+    height: $remHeight;
+}
